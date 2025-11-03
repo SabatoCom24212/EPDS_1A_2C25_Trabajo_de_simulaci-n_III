@@ -11,24 +11,6 @@ execute:
   warning: false
   message: false
 
-title: "Trabajo de Simulación III - Estadística y Probabilidad para el Desarrollo de Software"
-
-author:
-  - name: "Rinaldi, Flavio"
-    affiliations: [ifts29]
-  - name: "Sabato, Ángel"
-    affiliations: [ifts29]
-  - name: "Shifman, Iván"
-    affiliations: [ifts29]
-  - name: "Zárate, Marcelo"
-    affiliations: [ifts29]
-
-affiliations:
-  - id: ifts29
-    name: "Instituto de Formación Técnica Superior N° 29"
-    city: "Buenos Aires"
-    country: "Argentina"
-
 format:
   pdf:
     pdf-engine: pdflatex
@@ -36,6 +18,7 @@ format:
     papersize: a4
     fontsize: 11pt
     lang: en
+    title: ""
     geometry:
       - top=2.5cm
       - bottom=2.5cm
@@ -46,7 +29,7 @@ format:
     toc: true
     toc-depth: 3
     toc-title: "Índice de Contenidos"
-    lof: true
+    lof: false
     lot: false
     fig-pos: 'H'
     highlight-style: github
@@ -54,6 +37,7 @@ format:
     code-block-border-left: "#31BAE9"
     code-line-numbers: true
     keep-tex: false
+    code-link: false
     include-in-header:
       text: |
         \usepackage[utf8]{inputenc}
@@ -67,6 +51,36 @@ format:
         \usepackage{float}
         \floatplacement{figure}{H}
         \usepackage{graphicx}
+    include-before-body:
+      text: |
+        \begin{titlepage}
+        \centering
+        % LOGO DE LA INSTITUCIÓN
+        \includegraphics[width=0.3\textwidth]{logo.png}\\[2cm]
+        
+        % TÍTULO DEL TRABAJO
+        {\Huge\bfseries Trabajo de Simulación III\par}
+        \vspace{1cm}
+        
+        % INSTITUCIÓN
+        {\Large Instituto de Formación Técnica Superior N° 29\par}
+        \vspace{0.5cm}
+        
+        % ASIGNATURA
+        {\large Estadística y Probabilidad para el Desarrollo de Software\par}
+        \vspace{2cm}
+        
+        % AUTORES
+        {\large
+        Rinaldi, Flavio\\
+        Sabato, Ángel\\
+        Shifman, Iván\\
+        Zárate, Marcelo\\
+        \par}
+        
+        \vfill
+
+        \end{titlepage}
     link-citations: true
     colorlinks: true
     urlcolor: blue
@@ -87,3 +101,6 @@ code-overflow: wrap
 code-fold: false
 
 jupyter: python3
+
+notebook-links: false
+notebook-view: false
