@@ -180,7 +180,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, enhanced, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, borderline west={3pt}{0pt}{shadecolor}, enhanced, interior hidden, frame hidden, boxrule=0pt, breakable]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -772,14 +772,30 @@ Después de validar rangos de variables: 1827 registros
 
 MÉTRICAS DEL MODELO
 MAE Train: $1,129 USD
+El Error Absoluto Medio indica, en promedio, 
+cuánto se alejan las predicciones del modelo de los datos reales.
 MAE Test:  $1,097 USD
 RMSE Test: $1,559 USD
+El RMSE es la raíz cuadrada de la media de las diferencias 
+al cuadrado entre los valores observados y los predichos. 
+Siempre es no negativo, y los valores más bajos 
+indican un modelo mejor ajustado.
 R² Train:  0.4104 (41.04%)
+R² explica la proporción de varianza de la variable dependiente que puede atribuirse 
+a la variable (o variables) independiente(s). Podemos considerarlo como una medida de 
+lo bien que nuestro modelo capta lo que los datos cuentan, 
+y cuánto queda como ruido sin explicar.
+
 R² Test:   0.3647 (36.47%)
+Verificación del overfitting ("sobreajuste"):
+Ocurre cuando el modelo se ajusta demasiado a sus datos de entrenamiento, 
+impidiéndole realizar predicciones u obtener conclusiones precisas.
 
 El modelo generaliza bien (diferencia R²: 0.046)
 
 VALIDACIÓN CRUZADA (5-FOLD):
+La validación cruzada K-Fold es una técnica que se utiliza para evaluar el rendimiento de 
+los modelos de Machine Learning. Garantiza que el modelo generaliza bien.
 R² promedio: 0.3445 (±0.0251)
 R² por fold: ['0.371', '0.369', '0.340', '0.341', '0.301']
 MAE promedio: $1,177 (±$56)
@@ -866,20 +882,13 @@ Desviación Estándar: $1,561 USD
 \subsubsection{Conclusiones del modelo de Machine
 Learning}\label{conclusiones-del-modelo-de-machine-learning}
 
-El modelo identifica correctamente que la experiencia, edad y forma de
-pago en dólares son los predictores más importantes del salario. Esto
-coincide con nuestro análisis previo, donde también destacamos estas
-variables como parte de la combinación ganadora. De esta forma validamos
-nuestras conclusiones y reforzamos la idea de que estas características
-son clave para maximizar el salario en el sector IT.
-
 \begin{verbatim}
 
 El modelo Random Forest revela que:
 
-* Precision (R² test): 36.5% - Explica 36.5% de la variabilidad salarial
+* Precision (R² test): 36.5% - Explica 36.5% de la variabilidad salarial. 
 * Precision (R² CV): 34.5% - Validación cruzada confirma estabilidad
-* Error promedio: $1,097 USD/mes (±$56)
+* Error promedio: $1,097 USD/mes (±$56). 
 * Overfitting: Controlado (diferencia R²: 0.046)
 * Factor mas determinante: Experiencia (25.3% de importancia)
 
@@ -888,6 +897,13 @@ Top 3 variables individuales:
 2. seniority_Senior: 16.29%
 3. forma_pago_Cobro todo el salario en dólares: 11.26%
 \end{verbatim}
+
+El modelo identifica correctamente que la experiencia, edad y forma de
+pago en dólares son los predictores más importantes del salario. Esto
+coincide con nuestro análisis previo, donde también destacamos estas
+variables como parte de la combinación ganadora. De esta forma validamos
+nuestras conclusiones y reforzamos la idea de que estas características
+son clave para maximizar el salario en el sector IT.
 
 \subsection{Conclusiones}\label{conclusiones}
 
