@@ -180,14 +180,12 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, interior hidden, breakable, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, enhanced, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Trabajo de simulación 3},
-  pdfauthor={Rinaldi, Flavio; Sabato, Ángel; Shifman, Iván; Zárate, Marcelo},
   pdflang={en},
   colorlinks=true,
   linkcolor={black},
@@ -197,12 +195,38 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Trabajo de simulación 3}
-\author{Rinaldi, Flavio \and Sabato, Ángel \and Shifman,
-Iván \and Zárate, Marcelo}
+\author{}
 \date{}
 \begin{document}
-\maketitle
+
+\begin{titlepage}
+\centering
+% LOGO DE LA INSTITUCIÓN
+\includegraphics[width=0.3\textwidth]{logo.png}\\[2cm]
+
+% TÍTULO DEL TRABAJO
+{\Huge\bfseries Trabajo de Simulación III\par}
+\vspace{1cm}
+
+% INSTITUCIÓN
+{\Large Instituto de Formación Técnica Superior N° 29\par}
+\vspace{0.5cm}
+
+% ASIGNATURA
+{\large Estadística y Probabilidad para el Desarrollo de Software\par}
+\vspace{2cm}
+
+% AUTORES
+{\large
+Rinaldi, Flavio\\
+Sabato, Ángel\\
+Shifman, Iván\\
+Zárate, Marcelo\\
+\par}
+
+\vfill
+
+\end{titlepage}
 
 \renewcommand*\contentsname{Índice de Contenidos}
 {
@@ -210,9 +234,10 @@ Iván \and Zárate, Marcelo}
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
-\listoffigures
 
-\section{Consigna}\label{consigna}
+\section{Trabajo de simulación 3}\label{trabajo-de-simulaciuxf3n-3}
+
+\subsection{Consigna}\label{consigna}
 
 Para el último trabajo de simulación, vamos a hacer un análisis de datos
 a partir de la encuesta de salarios de Sysarmy del primer trimestre de
@@ -274,11 +299,7 @@ estos datos. ¡Muchos éxitos!
 \textbf{PD: El formato ``informe'' puede ser cambiado por el formato
 ``póster/infografía'' si es que así prefieren.}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\section{\texorpdfstring{Nuestra resolución: \emph{Optimización
+\subsection{\texorpdfstring{Nuestra resolución: \emph{Optimización
 salarial}}{Nuestra resolución: Optimización salarial}}\label{nuestra-resoluciuxf3n-optimizaciuxf3n-salarial}
 
 Para realizar nuestro análisis tomamos la perspectiva de un profesional
@@ -293,42 +314,22 @@ ser de utilidad tanto para el \emph{junior}, que necesita alguna
 como para el \emph{senior} que quizá se siente estancado y necesite
 reorientar su desarrollo profesional dentro del sector.
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Inspección y limpieza de
+\subsubsection{Inspección y limpieza de
 datos}\label{inspecciuxf3n-y-limpieza-de-datos}
 
 Comenzamos importando las librerías necesarias y cargando el dataset.
 Luego inspeccionamos los datos para ver qué variables tenemos
 disponibles y qué tipo de datos contienen.
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
 \begin{verbatim}
 *** Archivo cargado exitosamente
     Dimensiones: 5196 filas x 50 columnas
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
 Luego procesamos los datos para dejarlos en un formato adecuado para el
 análisis. Esto incluye manejar valores faltantes, convertir variables
 categóricas en numéricas (si es necesario) y asegurarnos de que todas
 las variables estén en el tipo de dato correcto.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 [PASO 1] Calculando salarios en USD con TC individual...
@@ -341,35 +342,19 @@ Dataset preparado: (5196, 53)
 Registros con salario USD: 5196
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
 Luego de todo el procesamiento ``de rigor'' que exige un análisis de
 datos, nos queda un dataset limpio y listo para analizar. En este punto
 comenzamos con la búsqueda de ``la combinación ganadora'', es decir, la
 combinación de variables que maximiza el salario.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 [INFO] Variables analizadas: 16
 [INFO] Registros validos: 5196
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
 En esta parte realizamos un análisis por variable individual. Tratamos
 de ir de a poco analizando la información que nos permita responder a la
 pregunta central del trabajo.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 [1] UBICACION GEOGRAFICA:
@@ -503,21 +488,13 @@ GANADOR: Con equipo
 Mediana: $2,830 USD
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{El perfil del top 10\%}\label{el-perfil-del-top-10}
+\subsubsection{El perfil del top 10\%}\label{el-perfil-del-top-10}
 
 Si bien nuestro objetivo es encontrar la combinación ganadora, creemos
 que un buen punto de partida es analizar el perfil del top 10\% con el
 mejor salario. La idea es entender qué características tienen en común
 los profesionales que están en este grupo y ver si podemos extraer
 alguna conclusión útil para nuestro análisis.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 *** Salario minimo Top 10%: $4,717 USD
@@ -559,11 +536,7 @@ Edad promedio: 38.8 anos
 Antiguedad promedio: 4.6 anos
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{El ``salto salarial'' en la trayectoria
+\subsubsection{El ``salto salarial'' en la trayectoria
 profesional}\label{el-salto-salarial-en-la-trayectoria-profesional}
 
 De a poco vemos emerger la infomación relevante. Una vez que analizamos
@@ -572,10 +545,6 @@ las variables anteriores, podemos abordar la cuestión de la
 salarial}, \emph{¿suele tardar en llegar?}, \emph{¿llega en algún
 momento o tiende más a bien a ser estable?}. Esto es lo que intentamos
 responder a continuación.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 EVOLUCIÓN SALARIAL POR EXPERIENCIA:
@@ -599,11 +568,7 @@ rango_exp
 MAYOR SALTO SALARIAL: 3-5 años (Semi-Senior) (+48.2%)
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Evolución del salario a través de los
+\subsubsection{Evolución del salario a través de los
 años}\label{evoluciuxf3n-del-salario-a-travuxe9s-de-los-auxf1os}
 
 Podemos visualizar la evolución del salario mediano a lo largo de los
@@ -612,28 +577,16 @@ crecimiento salarial. También podemos analizar la distribución de
 salarios en diferentes rangos de experiencia para ver cómo varía el
 salario entre profesionales con diferentes niveles.
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-9-output-1.png}}
 
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-9-output-2.png}}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Visualizaciones
+\subsubsection{Visualizaciones
 comparativas}\label{visualizaciones-comparativas}
 
 Ahora bien, una vez que tenemos toda esta información, podemos intentar
 combinar las variables para encontrar la combinación ganadora que
 maximiza el salario.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-10-output-1.png}}
 
@@ -679,20 +632,13 @@ Resto del pais Contractor                                         Full-Time     
                Freelance                                          Part-Time         45  
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{La combinación ganadora}\label{la-combinaciuxf3n-ganadora}
+\subsubsection{La combinación
+ganadora}\label{la-combinaciuxf3n-ganadora}
 
 Después de todo este análisis, podemos finalmente presentar la
 combinación ganadora que maximiza el salario. Esta combinación se basa
 en las variables que hemos analizado y las conclusiones que hemos
 extraído a lo largo de este ``análisis exploratorio de datos'' (EDA).
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 
@@ -749,11 +695,7 @@ RECOMENDACIONES PARA MAXIMIZAR SALARIO
 Objetivo: Alcanzar Top 10% ($4,717+ USD/mes)
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\section{\texorpdfstring{Machine Learning: \emph{Random Forest
+\subsection{\texorpdfstring{Machine Learning: \emph{Random Forest
 Regressor}}{Machine Learning: Random Forest Regressor}}\label{machine-learning-random-forest-regressor}
 
 En esta parte del trabajo, buscamos ir más allá del análisis descriptivo
@@ -768,11 +710,7 @@ visión más completa y robusta de los factores que impactan en el
 salario, validando o complementando nuestras conclusiones anteriores con
 un análisis basado en datos y modelos predictivos.
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Importancia de las
+\subsubsection{Importancia de las
 variables}\label{importancia-de-las-variables}
 
 En primer lugar, debemos preparar los datos para el modelo de Machine
@@ -781,10 +719,6 @@ valores faltantes y dividir los datos en conjuntos de entrenamiento y
 prueba. El modelo que vamos a aplicar es un Random Forest Regressor, muy
 utilizado para problemas de regresión que puede manejar tanto variables
 numéricas como categóricas.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 [INFO] Categorias de puestos creadas
@@ -851,11 +785,7 @@ R² por fold: ['0.371', '0.369', '0.340', '0.341', '0.301']
 MAE promedio: $1,177 (±$56)
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Visualización: predicciones
+\subsubsection{Visualización: predicciones
 vs.~realidad}\label{visualizaciuxf3n-predicciones-vs.-realidad}
 
 El modelo entrenado nos permite hacer predicciones sobre los salarios
@@ -867,27 +797,15 @@ de visualizar esta comparación es mediante un gráfico de dispersión
 salario real en el eje Y y su salario predicho por el modelo en el eje
 X.
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-13-output-1.png}}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Cálculo de la importancia de las
+\subsubsection{Cálculo de la importancia de las
 variables}\label{cuxe1lculo-de-la-importancia-de-las-variables}
 
 En este caso, el modelo nos proporciona una medida de la importancia de
 cada variable en la predicción del salario. Podemos ordenar estas
 importancias y visualizarlas para identificar cuáles son las
 características más influyentes.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 TOP 15 VARIABLES MÁS IMPORTANTES:
@@ -929,20 +847,12 @@ Modalidad            1.916310
 
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-14-output-3.png}}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Análisis de residuos}\label{anuxe1lisis-de-residuos}
+\subsubsection{Análisis de residuos}\label{anuxe1lisis-de-residuos}
 
 Finalmente, podemos analizar los residuos del modelo, es decir, la
 diferencia entre los salarios reales y los predichos. Esto nos permite
 identificar patrones en los errores del modelo y entender mejor su
 rendimiento.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 ESTADISTICAS DE LOS RESIDUOS:
@@ -953,11 +863,7 @@ Desviación Estándar: $1,561 USD
 
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-15-output-2.png}}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\subsection{Conclusiones del modelo de Machine
+\subsubsection{Conclusiones del modelo de Machine
 Learning}\label{conclusiones-del-modelo-de-machine-learning}
 
 El modelo identifica correctamente que la experiencia, edad y forma de
@@ -966,10 +872,6 @@ coincide con nuestro análisis previo, donde también destacamos estas
 variables como parte de la combinación ganadora. De esta forma validamos
 nuestras conclusiones y reforzamos la idea de que estas características
 son clave para maximizar el salario en el sector IT.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 \begin{verbatim}
 
@@ -987,11 +889,7 @@ Top 3 variables individuales:
 3. forma_pago_Cobro todo el salario en dólares: 11.26%
 \end{verbatim}
 
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
-
-\section{Conclusiones}\label{conclusiones}
+\subsection{Conclusiones}\label{conclusiones}
 
 A modo de cierre, luego del EDA (``Análisis exploratorio de Datos'') y
 del análisis utilizando Machine Learning, podemos llegar a la conclusión
@@ -1011,10 +909,6 @@ salarios más altos. Esta última variable se vincula directamente con las
 llamadas ``soft skills'', lo que coincide con la tendencia actual del
 mercado laboral a valorar cada vez más estas habilidades interpersonales
 y de gestión.
-
-\textsubscript{Source:
-\href{https://SabatoCom24212.github.io/EPDS_1A_2C25_Trabajo_de_simulaci-n_III/C:/Users/ThinkPad/Desktop/EPDS_1A_2C25_Trabajo_de_simulación_III/EPDS_1A_2C25_Trabajo_de_simulación_III.ipynb.html}{Article
-Notebook}}
 
 
 
