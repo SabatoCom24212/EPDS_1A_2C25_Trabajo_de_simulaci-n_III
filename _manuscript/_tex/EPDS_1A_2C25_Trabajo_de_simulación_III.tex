@@ -180,7 +180,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, borderline west={3pt}{0pt}{shadecolor}, enhanced, interior hidden, frame hidden, boxrule=0pt, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, frame hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, breakable, interior hidden, enhanced]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -695,6 +695,187 @@ RECOMENDACIONES PARA MAXIMIZAR SALARIO
 Objetivo: Alcanzar Top 10% ($4,717+ USD/mes)
 \end{verbatim}
 
+\subsection{Validación estadística: Prueba de
+hipótesis}\label{validaciuxf3n-estaduxedstica-prueba-de-hipuxf3tesis}
+
+Una vez identificada la ``combinación ganadora'' mediante análisis
+exploratorio, es fundamental someter nuestros hallazgos a prueba
+estadística rigurosa. Específicamente, evaluamos si la ventaja salarial
+de los Contractors (\$2,642 USD) sobre Staff (\$2,170 USD) es
+estadísticamente significativa o podría deberse al azar.
+
+\textbf{Hipótesis:} - \(H_0\): Mediana(Contractors) = Mediana(Staff) -
+\(H_1\): Mediana(Contractors) \textgreater{} Mediana(Staff) - \(\alpha\)
+= 0.05
+
+\begin{verbatim}
+
+CONTEXTO:
+En nuestro análisis exploratorio identificamos que los Contractors tienen
+un salario mediano de $2,642 USD, mientras que
+los trabajadores Staff tienen $2,170 USD.
+
+
+[DATOS OBSERVADOS]
+Contractors - n: 859, Mediana: $2,641.51 USD
+Staff - n: 3,768, Mediana: $2,169.81 USD
+Diferencia observada: $471.70 USD
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{Hipótesis - Mediana salarial:
+\emph{Contractors
+vs.~Staff}}{Hipótesis - Mediana salarial: Contractors vs.~Staff}}\label{hipuxf3tesis---mediana-salarial-contractors-vs.-staff}
+
+\begin{verbatim}
+
+H0 (Hipótesis nula): La mediana salarial de Contractors es IGUAL a Staff
+                      Mediana(Contractors) = Mediana(Staff)
+
+H1 (Hipótesis alternativa): La mediana salarial de Contractors es MAYOR
+                             Mediana(Contractors) > Mediana(Staff)
+
+Nivel de significancia: alpha = 0.05 (5%)
+
+Método: Prueba de permutaciones (Bootstrap no paramétrico)
+\end{verbatim}
+
+\subsubsection{Método 1: Prueba de
+permutaciones}\label{muxe9todo-1-prueba-de-permutaciones}
+
+\begin{verbatim}
+
+CONCEPTO:
+Si H0 fuera cierta (no hay diferencia real entre grupos), entonces las 
+etiquetas 'Contractor' y 'Staff' son intercambiables. Simulamos este escenario
+permutando aleatoriamente las etiquetas miles de veces y observamos cuántas
+veces obtenemos una diferencia tan grande o mayor que la observada solo por azar.
+
+Este método no asume distribución normal y es robusto ante outliers.
+
+Realizando 10,000 permutaciones...Completado
+
+[RESULTADOS DE LA PRUEBA]
+Diferencia observada: $471.70 USD
+P-valor: 0.0000 (0.00%)
+
+INTERPRETACIÓN:
+La probabilidad de obtener una diferencia mayor o igual a $471.70 USD
+si H0 fuera cierta (grupos iguales) es de 0.00%
+
+--------------------------------------------------------------------------------
+DECISIÓN: RECHAZAMOS H0 (p < 0.05)
+
+  CONCLUSIÓN:
+  Existe evidencia estadísticamente significativa de que los Contractors
+  ganan MÁS que Staff. Esta diferencia de $471.70 USD NO se debe
+  al azar, sino a factores estructurales del mercado laboral.
+--------------------------------------------------------------------------------
+\end{verbatim}
+
+\subsubsection{Método 2: Intervalos de confianza
+(Bootstrap)}\label{muxe9todo-2-intervalos-de-confianza-bootstrap}
+
+\begin{verbatim}
+
+CONCEPTO:
+Mediante remuestreo con reemplazo de cada grupo,
+estimamos la distribución de las medianas y construimos intervalos que
+contengan el verdadero valor poblacional con 95% de confianza.
+
+Si los intervalos NO se solapan, hay evidencia adicional de diferencia real.
+
+Generando 10,000 muestras bootstrap...Completado
+
+[INTERVALOS DE CONFIANZA 95%]
+Contractors: [$2,452.83, $2,880.00] USD
+Staff:       [$2,094.34, $2,210.28] USD
+
+--------------------------------------------------------------------------------
+Los intervalos NO se solapan
+
+  INTERPRETACIÓN:
+  Con 95% de confianza, la mediana de Contractors es mayor que Staff.
+  Esto refuerza la conclusión de diferencia significativa.
+--------------------------------------------------------------------------------
+\end{verbatim}
+
+\subsubsection{Visualización de
+resultados}\label{visualizaciuxf3n-de-resultados}
+
+\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-16-output-1.png}}
+
+\begin{verbatim}
+Visualizaciones generadas
+
+
+¿Los Contractors ganan significativamente más que Staff en el sector IT argentino?
+
+DATOS:
+- Contractors: n=859, Mediana=$2,642 USD
+- Staff: n=3,768, Mediana=$2,170 USD
+- Diferencia observada: $472 USD (21.7%)
+
+RESULTADOS DE LAS PRUEBAS:
+
+1. PRUEBA DE PERMUTACIONES:
+   - P-valor: 0.0000 (< 0.05)
+   - Decisión: RECHAZAR H0
+      → Diferencia SIGNIFICATIVA
+
+2. INTERVALOS DE CONFIANZA 95%:
+   - Contractors: [$2,453, $2,880] USD
+   - Staff: [$2,094, $2,210] USD
+   - Solapamiento: NO
+      → Confirma diferencia significativa
+\end{verbatim}
+
+\subsubsection{Interpretación de estos
+resultados}\label{interpretaciuxf3n-de-estos-resultados}
+
+La prueba de permutaciones nos permitió simular 10,000 escenarios donde
+no existe diferencia real entre grupos (H0). Este método no paramétrico
+es robusto ante outliers y no asume distribución normal de los datos, lo
+que lo hace ideal para nuestro análisis salarial que presenta asimetría
+y valores extremos. El p-valor obtenido representa la probabilidad de
+observar una diferencia tan grande o mayor como la nuestra (\$472 USD)
+si ambos grupos fueran realmente iguales. Un p-valor bajo indica que es
+poco probable que esta diferencia sea producto del azar. Resultados de
+las dos pruebas:
+
+Prueba de Permutaciones: El p-valor obtenido nos indica si podemos
+rechazar H0 con 95\% de confianza (alpha = 0.05). Si p \textless{} 0.05,
+la diferencia ES estadísticamente significativa; si p es mayor o igual
+0.05, NO tenemos evidencia suficiente para afirmar que existe diferencia
+real. Intervalos de Confianza 95\%: Estos intervalos nos dan un rango
+donde se encuentra el verdadero valor poblacional de la mediana con 95\%
+de confianza. Si los intervalos de ambos grupos NO se solapan, hay
+evidencia adicional de diferencia significativa. Si SÍ se solapan,
+existe zona de incertidumbre.
+
+Convergencia y robustez: Las distribuciones bootstrap (10,000
+replicaciones con reemplazo) demuestran un principio fundamental
+estudiado en la materia: la Ley de los Grandes Números. A medida que
+aumentamos las replicaciones, las distribuciones de las medianas
+convergen a valores estables que reflejan las verdaderas características
+poblacionales. Esta convergencia es visible en los gráficos: las
+distribuciones bootstrap son suaves y bien definidas, no erráticas, lo
+que confirma que nuestras estimaciones son robustas y no dependen de
+fluctuaciones aleatorias del muestreo. Validación de la ``combinación
+ganadora'': Este análisis estadístico riguroso valida o cuestiona
+empíricamente nuestra recomendación previa de priorizar contratos tipo
+Contractor.
+
+\subsubsection{Conexión con inferencia
+estadística:}\label{conexiuxf3n-con-inferencia-estaduxedstica}
+
+Aunque la materia no cubrió formalmente estadística inferencial, este
+análisis representa un ``coqueteo'' práctico con conceptos
+fundamentales: pruebas de hipótesis, p-valores, intervalos de confianza
+y tamaño del efecto. Aplicamos el método científico a nuestros datos:
+planteamos una conjetura específica, la sometimos a prueba rigurosa
+usando simulación computacional (bootstrap/permutaciones), y llegamos a
+una conclusión fundamentada en probabilidades, no en intuición.
+
 \subsection{\texorpdfstring{Machine Learning: \emph{Random Forest
 Regressor}}{Machine Learning: Random Forest Regressor}}\label{machine-learning-random-forest-regressor}
 
@@ -737,7 +918,7 @@ Agile / Scrum           33
 Name: count, dtype: int64
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-12-output-2.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-17-output-2.png}}
 
 \begin{verbatim}
 [INFO] Tamaño empresa simplificado:
@@ -813,7 +994,7 @@ de visualizar esta comparación es mediante un gráfico de dispersión
 salario real en el eje Y y su salario predicho por el modelo en el eje
 X.
 
-\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-13-output-1.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-18-output-1.png}}
 
 \subsubsection{Cálculo de la importancia de las
 variables}\label{cuxe1lculo-de-la-importancia-de-las-variables}
@@ -859,9 +1040,9 @@ Liderazgo            2.774539
 Modalidad            1.916310
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-14-output-2.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-19-output-2.png}}
 
-\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-14-output-3.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-19-output-3.png}}
 
 \subsubsection{Análisis de residuos}\label{anuxe1lisis-de-residuos}
 
@@ -877,7 +1058,7 @@ Mediana: $-249 USD
 Desviación Estándar: $1,561 USD
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-15-output-2.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-20-output-2.png}}
 
 \subsubsection{Conclusiones del modelo de Machine
 Learning}\label{conclusiones-del-modelo-de-machine-learning}
