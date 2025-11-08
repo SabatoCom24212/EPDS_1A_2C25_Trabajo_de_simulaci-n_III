@@ -180,7 +180,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, frame hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, breakable, interior hidden, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, enhanced, breakable, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -318,12 +318,12 @@ reorientar su desarrollo profesional dentro del sector.
 datos}\label{inspecciuxf3n-y-limpieza-de-datos}
 
 Comenzamos importando las librerías necesarias y cargando el dataset.
-Luego inspeccionamos los datos para ver qué variables tenemos
-disponibles y qué tipo de datos contienen.
+Luego inspeccionamos los datos para ver cuáles son las variables que
+tenemos disponibles y cuáles son los tipos de datos que contienen.
 
 \begin{verbatim}
-*** Archivo cargado exitosamente
-    Dimensiones: 5196 filas x 50 columnas
+Archivo cargado exitosamente
+Dimensiones: 5196 filas x 50 columnas
 \end{verbatim}
 
 Luego procesamos los datos para dejarlos en un formato adecuado para el
@@ -336,7 +336,7 @@ las variables estén en el tipo de dato correcto.
 
     * 927 registros con TC reportado individual
     * TC mediano de la encuesta: $1,060.00
-    * 4269 registros usando TC mediano
+    - 4269 registros usando TC mediano
 
 Dataset preparado: (5196, 53)
 Registros con salario USD: 5196
@@ -348,8 +348,8 @@ comenzamos con la búsqueda de ``la combinación ganadora'', es decir, la
 combinación de variables que maximiza el salario.
 
 \begin{verbatim}
-[INFO] Variables analizadas: 16
-[INFO] Registros validos: 5196
+Variables analizadas: 16
+Registros válidos: 5196
 \end{verbatim}
 
 En esta parte realizamos un análisis por variable individual. Tratamos
@@ -357,7 +357,7 @@ de ir de a poco analizando la información que nos permita responder a la
 pregunta central del trabajo.
 
 \begin{verbatim}
-[1] UBICACION GEOGRAFICA:
+[1] UBICACIÓN GEOGRÁFICA:
                   Media  Mediana      Q75         Max  Cantidad
 es_caba                                                        
 Resto del pais  5324.79  2124.29  3275.33  3885135.14      5196
@@ -393,7 +393,7 @@ Freelance                                                137
 GANADOR: Contractor
 Mediana: $2,642 USD
 
-[3] DEDICACION:
+[3] DEDICACIÓN:
               Media  Mediana      Q75         Max  Cantidad
 dedicacion                                                 
 Full-Time   5507.10  2169.81  3301.89  3885135.14      4974
@@ -460,7 +460,7 @@ Mi sueldo está dolarizado (pero cobro en moneda...       323
 GANADOR: Cobro todo el salario en dólares
 Mediana: $3,302 USD
 
-[8] TAMANO DE EMPRESA:
+[8] TAMAÑO DE EMPRESA:
                              Media  Mediana      Q75         Max  Cantidad
 tamano_empresa                                                            
 De 2001a 5000 personas     2912.02  2641.51  3720.12    11132.08       364
@@ -497,12 +497,12 @@ los profesionales que están en este grupo y ver si podemos extraer
 alguna conclusión útil para nuestro análisis.
 
 \begin{verbatim}
-*** Salario minimo Top 10%: $4,717 USD
-*** Trabajadores en Top 10%: 530
+Salario mínimo Top 10%: $4,717 USD
+Trabajadores en Top 10%: 530
 
-[Distribucion Top 10%]
+[Distribución Top 10%]
 
-Ubicacion:
+Ubicación:
 es_caba
 Resto del pais    100.0
 Name: proportion, dtype: float64
@@ -644,13 +644,13 @@ extraído a lo largo de este ``análisis exploratorio de datos'' (EDA).
 
 PERFIL DE LOS TRABAJADORES MEJOR PAGOS
 
-[1] UBICACION: Resto del pais
+[1] UBICACIÓN: Resto del pais
     Mediana: $2,124 USD
 
 [2] TIPO CONTRATO: Contractor
     Mediana: $2,642 USD
 
-[3] DEDICACION: Full-Time
+[3] DEDICACIÓN: Full-Time
     Mediana: $2,170 USD
 
 [4] MODALIDAD: Híbrido (presencial y remoto)
@@ -665,13 +665,13 @@ PERFIL DE LOS TRABAJADORES MEJOR PAGOS
 [7] FORMA PAGO: Cobro todo el salario en dólares
     Mediana: $3,302 USD
 
-[8] TAMANO EMPRESA: De 2001a 5000 personas
+[8] TAMAÑO EMPRESA: De 2001a 5000 personas
     Mediana: $2,642 USD
 
 [9] LIDERAZGO: Con equipo
     Mediana: $2,830 USD
 
-EVOLUCION ESPERADA DEL SALARIO
+EVOLUCIÓN ESPERADA DEL SALARIO
 
 0-2 años:  $1,273 USD
 3-5 años:  $1,887 USD (+48.2%)
@@ -788,7 +788,7 @@ Generando 10,000 muestras bootstrap...Completado
 
 [INTERVALOS DE CONFIANZA 95%]
 Contractors: [$2,452.83, $2,880.00] USD
-Staff:       [$2,094.34, $2,210.28] USD
+Staff:       [$2,094.34, $2,207.55] USD
 
 --------------------------------------------------------------------------------
 Los intervalos NO se solapan
@@ -824,7 +824,7 @@ RESULTADOS DE LAS PRUEBAS:
 
 2. INTERVALOS DE CONFIANZA 95%:
    - Contractors: [$2,453, $2,880] USD
-   - Staff: [$2,094, $2,210] USD
+   - Staff: [$2,094, $2,208] USD
    - Solapamiento: NO
       → Confirma diferencia significativa
 \end{verbatim}
@@ -1067,11 +1067,11 @@ Learning}\label{conclusiones-del-modelo-de-machine-learning}
 
 El modelo Random Forest revela que:
 
-* Precision (R² test): 36.5% - Explica 36.5% de la variabilidad salarial. 
-* Precision (R² CV): 34.5% - Validación cruzada confirma estabilidad
+* Precisión (R² test): 36.5% - Explica 36.5% de la variabilidad salarial. 
+* Precisión (R² CV): 34.5% - Validación cruzada confirma estabilidad
 * Error promedio: $1,097 USD/mes (±$56). 
 * Overfitting: Controlado (diferencia R²: 0.046)
-* Factor mas determinante: Experiencia (25.3% de importancia)
+* Factor más determinante: Experiencia (25.3% de importancia)
 
 Top 3 variables individuales:
 1. experiencia: 25.30%
