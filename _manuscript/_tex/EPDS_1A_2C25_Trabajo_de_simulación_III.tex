@@ -180,7 +180,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, frame hidden, sharp corners, enhanced, breakable, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, sharp corners, borderline west={3pt}{0pt}{shadecolor}, interior hidden, boxrule=0pt, frame hidden, enhanced]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -359,7 +359,7 @@ pregunta central del trabajo.
 \begin{verbatim}
 [1] UBICACIÓN GEOGRÁFICA:
                   Media  Mediana      Q75         Max  Cantidad
-es_caba                                                        
+ubicacion                                                      
 CABA            6840.25  2264.15  3490.57  3885135.14      2643
 Resto del pais  3755.91  1981.13  3018.87  3500000.00      2553
 
@@ -503,8 +503,7 @@ Trabajadores en Top 10%: 530
 
 [Distribución Top 10%]
 
-Ubicación:
-es_caba
+ubicacion
 CABA              60.8
 Resto del pais    39.2
 Name: proportion, dtype: float64
@@ -598,7 +597,7 @@ maximiza el salario.
 
 Top 10 Combinaciones (Ubicación + Contrato + Dedicación):
                                                                                  Media  \
-es_caba        tipo_contrato                                      dedicacion             
+ubicacion      tipo_contrato                                      dedicacion             
 CABA           Contractor                                         Full-Time   14030.70   
 Resto del pais Contractor                                         Full-Time   10638.60   
 CABA           Staff (planta permanente)                          Full-Time    6494.71   
@@ -611,7 +610,7 @@ CABA           Tercerizado (trabajo a través de consultora o a... Full-Time    
 Resto del pais Freelance                                          Full-Time    2160.91   
 
                                                                               Mediana  \
-es_caba        tipo_contrato                                      dedicacion            
+ubicacion      tipo_contrato                                      dedicacion            
 CABA           Contractor                                         Full-Time   3017.22   
 Resto del pais Contractor                                         Full-Time   2830.19   
 CABA           Staff (planta permanente)                          Full-Time   2358.49   
@@ -624,7 +623,7 @@ CABA           Tercerizado (trabajo a través de consultora o a... Full-Time   1
 Resto del pais Freelance                                          Full-Time   1556.60   
 
                                                                               Cantidad  
-es_caba        tipo_contrato                                      dedicacion            
+ubicacion      tipo_contrato                                      dedicacion            
 CABA           Contractor                                         Full-Time        331  
 Resto del pais Contractor                                         Full-Time        470  
 CABA           Staff (planta permanente)                          Full-Time       1975  
@@ -793,7 +792,7 @@ Generando 10,000 muestras bootstrap...Completado
 
 [INTERVALOS DE CONFIANZA 95%]
 Contractors: [$2,452.83, $2,880.00] USD
-Staff:       [$2,094.20, $2,209.58] USD
+Staff:       [$2,094.34, $2,208.49] USD
 
 --------------------------------------------------------------------------------
 Los intervalos NO se solapan
@@ -829,7 +828,7 @@ RESULTADOS DE LAS PRUEBAS:
 
 2. INTERVALOS DE CONFIANZA 95%:
    - Contractors: [$2,453, $2,880] USD
-   - Staff: [$2,094, $2,210] USD
+   - Staff: [$2,094, $2,208] USD
    - Solapamiento: NO
       → Confirma diferencia significativa
 \end{verbatim}
@@ -1025,7 +1024,7 @@ TOP 15 VARIABLES MÁS IMPORTANTES:
 26                            tiene_equipo_Sin equipo       2.775035
 12                  tamano_empresa_Mediana (101-1000)       2.737966
 25  forma_pago_Mi sueldo está dolarizado (pero cob...       2.202750
-7                              es_caba_Resto del pais       1.287300
+7                            ubicacion_Resto del pais       1.287300
 23                      puesto_categoria_UX/UI Design       1.196160
 17                         puesto_categoria_Developer       0.935180
 
