@@ -180,7 +180,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, enhanced, breakable, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, frame hidden, sharp corners, enhanced, breakable, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -360,10 +360,11 @@ pregunta central del trabajo.
 [1] UBICACIÓN GEOGRÁFICA:
                   Media  Mediana      Q75         Max  Cantidad
 es_caba                                                        
-Resto del pais  5324.79  2124.29  3275.33  3885135.14      5196
+CABA            6840.25  2264.15  3490.57  3885135.14      2643
+Resto del pais  3755.91  1981.13  3018.87  3500000.00      2553
 
-GANADOR: Resto del pais
-Mediana: $2,124 USD
+GANADOR: CABA
+Mediana: $2,264 USD
 
 [2] TIPO DE CONTRATO:
                                                        Media  Mediana  \
@@ -504,7 +505,8 @@ Trabajadores en Top 10%: 530
 
 Ubicación:
 es_caba
-Resto del pais    100.0
+CABA              60.8
+Resto del pais    39.2
 Name: proportion, dtype: float64
 
 Tipo de Contrato:
@@ -597,39 +599,42 @@ maximiza el salario.
 Top 10 Combinaciones (Ubicación + Contrato + Dedicación):
                                                                                  Media  \
 es_caba        tipo_contrato                                      dedicacion             
-Resto del pais Contractor                                         Full-Time   12040.33   
-               Staff (planta permanente)                          Full-Time    4563.36   
-               Participación societaria en una cooperativa        Full-Time    2268.23   
-               Freelance                                          Full-Time    2309.57   
-               Tercerizado (trabajo a través de consultora o a... Full-Time    1912.36   
-               Staff (planta permanente)                          Part-Time    1343.89   
-               Contractor                                         Part-Time    1324.06   
-               Tercerizado (trabajo a través de consultora o a... Part-Time     887.62   
-               Freelance                                          Part-Time    1049.34   
+CABA           Contractor                                         Full-Time   14030.70   
+Resto del pais Contractor                                         Full-Time   10638.60   
+CABA           Staff (planta permanente)                          Full-Time    6494.71   
+Resto del pais Participación societaria en una cooperativa        Full-Time    2361.33   
+CABA           Participación societaria en una cooperativa        Full-Time    2175.13   
+Resto del pais Staff (planta permanente)                          Full-Time    2308.98   
+CABA           Freelance                                          Full-Time    2540.82   
+Resto del pais Tercerizado (trabajo a través de consultora o a... Full-Time    1982.89   
+CABA           Tercerizado (trabajo a través de consultora o a... Full-Time    1841.84   
+Resto del pais Freelance                                          Full-Time    2160.91   
 
                                                                               Mediana  \
 es_caba        tipo_contrato                                      dedicacion            
+CABA           Contractor                                         Full-Time   3017.22   
 Resto del pais Contractor                                         Full-Time   2830.19   
-               Staff (planta permanente)                          Full-Time   2169.81   
-               Participación societaria en una cooperativa        Full-Time   2124.69   
-               Freelance                                          Full-Time   1836.32   
-               Tercerizado (trabajo a través de consultora o a... Full-Time   1608.49   
-               Staff (planta permanente)                          Part-Time   1008.90   
-               Contractor                                         Part-Time    825.13   
-               Tercerizado (trabajo a través de consultora o a... Part-Time    801.89   
-               Freelance                                          Part-Time    745.28   
+CABA           Staff (planta permanente)                          Full-Time   2358.49   
+Resto del pais Participación societaria en una cooperativa        Full-Time   2216.98   
+CABA           Participación societaria en una cooperativa        Full-Time   2030.35   
+Resto del pais Staff (planta permanente)                          Full-Time   2018.79   
+CABA           Freelance                                          Full-Time   1886.79   
+Resto del pais Tercerizado (trabajo a través de consultora o a... Full-Time   1667.68   
+CABA           Tercerizado (trabajo a través de consultora o a... Full-Time   1575.47   
+Resto del pais Freelance                                          Full-Time   1556.60   
 
                                                                               Cantidad  
 es_caba        tipo_contrato                                      dedicacion            
-Resto del pais Contractor                                         Full-Time        801  
-               Staff (planta permanente)                          Full-Time       3667  
-               Participación societaria en una cooperativa        Full-Time         28  
-               Freelance                                          Full-Time         92  
-               Tercerizado (trabajo a través de consultora o a... Full-Time        386  
-               Staff (planta permanente)                          Part-Time        101  
-               Contractor                                         Part-Time         58  
-               Tercerizado (trabajo a través de consultora o a... Part-Time         17  
-               Freelance                                          Part-Time         45  
+CABA           Contractor                                         Full-Time        331  
+Resto del pais Contractor                                         Full-Time        470  
+CABA           Staff (planta permanente)                          Full-Time       1975  
+Resto del pais Participación societaria en una cooperativa        Full-Time         14  
+CABA           Participación societaria en una cooperativa        Full-Time         14  
+Resto del pais Staff (planta permanente)                          Full-Time       1692  
+CABA           Freelance                                          Full-Time         36  
+Resto del pais Tercerizado (trabajo a través de consultora o a... Full-Time        193  
+CABA           Tercerizado (trabajo a través de consultora o a... Full-Time        193  
+Resto del pais Freelance                                          Full-Time         56  
 \end{verbatim}
 
 \subsubsection{La combinación
@@ -644,8 +649,8 @@ extraído a lo largo de este ``análisis exploratorio de datos'' (EDA).
 
 PERFIL DE LOS TRABAJADORES MEJOR PAGOS
 
-[1] UBICACIÓN: Resto del pais
-    Mediana: $2,124 USD
+[1] UBICACIÓN: CABA
+    Mediana: $2,264 USD
 
 [2] TIPO CONTRATO: Contractor
     Mediana: $2,642 USD
@@ -681,7 +686,7 @@ EVOLUCIÓN ESPERADA DEL SALARIO
 
 RECOMENDACIONES PARA MAXIMIZAR SALARIO
 
-1. Ubicarse en Resto del pais
+1. Ubicarse en CABA
 2. Buscar contratos tipo Contractor
 3. Trabajar Full-Time
 4. Priorizar modalidad Híbrido (presencial y remoto)
@@ -788,7 +793,7 @@ Generando 10,000 muestras bootstrap...Completado
 
 [INTERVALOS DE CONFIANZA 95%]
 Contractors: [$2,452.83, $2,880.00] USD
-Staff:       [$2,094.34, $2,207.55] USD
+Staff:       [$2,094.20, $2,209.58] USD
 
 --------------------------------------------------------------------------------
 Los intervalos NO se solapan
@@ -824,7 +829,7 @@ RESULTADOS DE LAS PRUEBAS:
 
 2. INTERVALOS DE CONFIANZA 95%:
    - Contractors: [$2,453, $2,880] USD
-   - Staff: [$2,094, $2,208] USD
+   - Staff: [$2,094, $2,210] USD
    - Solapamiento: NO
       → Confirma diferencia significativa
 \end{verbatim}
@@ -942,7 +947,7 @@ Después de validar rangos de variables: 1827 registros
 [INFO] Salario USD - Min: $261 | Max: $12,106
 [INFO] Salario USD - Media: $3,126 | Mediana: $2,642
 
-[INFO] Features después de encoding: 26
+[INFO] Features después de encoding: 27
 [VALIDACIÓN] NaN en X: 0
 [VALIDACIÓN] Infinitos en X: 0
 [VALIDACIÓN] NaN en y: 0
@@ -952,34 +957,34 @@ Después de validar rangos de variables: 1827 registros
 [MODELO] Entrenado exitosamente
 
 MÉTRICAS DEL MODELO
-MAE Train: $1,129 USD
+MAE Train: $1,128 USD
 El Error Absoluto Medio indica, en promedio, 
 cuánto se alejan las predicciones del modelo de los datos reales.
-MAE Test:  $1,097 USD
+MAE Test:  $1,104 USD
 RMSE Test: $1,559 USD
 El RMSE es la raíz cuadrada de la media de las diferencias 
 al cuadrado entre los valores observados y los predichos. 
 Siempre es no negativo, y los valores más bajos 
 indican un modelo mejor ajustado.
-R² Train:  0.4104 (41.04%)
+R² Train:  0.4072 (40.72%)
 R² explica la proporción de varianza de la variable dependiente que puede atribuirse 
 a la variable (o variables) independiente(s). Podemos considerarlo como una medida de 
 lo bien que nuestro modelo capta lo que los datos cuentan, 
 y cuánto queda como ruido sin explicar.
 
-R² Test:   0.3647 (36.47%)
+R² Test:   0.3651 (36.51%)
 Verificación del overfitting ("sobreajuste"):
 Ocurre cuando el modelo se ajusta demasiado a sus datos de entrenamiento, 
 impidiéndole realizar predicciones u obtener conclusiones precisas.
 
-El modelo generaliza bien (diferencia R²: 0.046)
+El modelo generaliza bien (diferencia R²: 0.042)
 
 VALIDACIÓN CRUZADA (5-FOLD):
 La validación cruzada K-Fold es una técnica que se utiliza para evaluar el rendimiento de 
 los modelos de Machine Learning. Garantiza que el modelo generaliza bien.
-R² promedio: 0.3445 (±0.0251)
-R² por fold: ['0.371', '0.369', '0.340', '0.341', '0.301']
-MAE promedio: $1,177 (±$56)
+R² promedio: 0.3469 (±0.0254)
+R² por fold: ['0.378', '0.369', '0.344', '0.339', '0.305']
+MAE promedio: $1,176 (±$55)
 \end{verbatim}
 
 \subsubsection{Visualización: predicciones
@@ -1008,36 +1013,37 @@ características más influyentes.
 TOP 15 VARIABLES MÁS IMPORTANTES:
 
                                              Variable  Importancia_%
-0                                         experiencia      25.301486
-4                                    seniority_Senior      16.287362
-23        forma_pago_Cobro todo el salario en dólares      11.255804
-2                                                edad       9.608281
-18                        puesto_categoria_Management       8.963168
-12                     tamano_empresa_Pequeña (1-100)       4.362377
-1                                          antiguedad       4.133615
-3                               seniority_Semi-Senior       3.722887
-25                            tiene_equipo_Sin equipo       2.774539
-9             tipo_contrato_Staff (planta permanente)       2.697445
-11                  tamano_empresa_Mediana (101-1000)       2.380986
-24  forma_pago_Mi sueldo está dolarizado (pero cob...       1.727312
-5                               modalidad_100% remoto       1.248300
-13                         puesto_categoria_Architect       1.203275
-22                      puesto_categoria_UX/UI Design       1.131085
+0                                         experiencia      31.663572
+4                                    seniority_Senior      15.299388
+24        forma_pago_Cobro todo el salario en dólares      10.045462
+2                                                edad       7.524643
+19                        puesto_categoria_Management       7.221214
+3                               seniority_Semi-Senior       3.764983
+1                                          antiguedad       3.511546
+10            tipo_contrato_Staff (planta permanente)       3.135152
+13                     tamano_empresa_Pequeña (1-100)       2.969135
+26                            tiene_equipo_Sin equipo       2.775035
+12                  tamano_empresa_Mediana (101-1000)       2.737966
+25  forma_pago_Mi sueldo está dolarizado (pero cob...       2.202750
+7                              es_caba_Resto del pais       1.287300
+23                      puesto_categoria_UX/UI Design       1.196160
+17                         puesto_categoria_Developer       0.935180
 
 IMPORTANCIA POR CATEGORÍA:
 
                 Importancia_%
 Categoria                    
-Experiencia         25.301486
-Seniority           20.010249
-Puesto/Rol          13.288836
-Forma de Pago       12.983116
-Edad                 9.608281
-Tamano Empresa       6.743363
-Antiguedad           4.133615
-Tipo Contrato        3.240205
-Liderazgo            2.774539
-Modalidad            1.916310
+Experiencia         31.663572
+Seniority           19.064371
+Forma de Pago       12.248212
+Puesto/Rol          11.133928
+Edad                 7.524643
+Tamano Empresa       5.707101
+Tipo Contrato        3.515522
+Antiguedad           3.511546
+Liderazgo            2.775035
+Modalidad            1.568769
+Ubicacion            1.287300
 \end{verbatim}
 
 \pandocbounded{\includegraphics[keepaspectratio]{EPDS_1A_2C25_Trabajo_de_simulación_III_files/figure-pdf/cell-19-output-2.png}}
@@ -1053,8 +1059,8 @@ rendimiento.
 
 \begin{verbatim}
 ESTADISTICAS DE LOS RESIDUOS:
-Media: $33 USD
-Mediana: $-249 USD
+Media: $27 USD
+Mediana: $-246 USD
 Desviación Estándar: $1,561 USD
 \end{verbatim}
 
@@ -1068,15 +1074,15 @@ Learning}\label{conclusiones-del-modelo-de-machine-learning}
 El modelo Random Forest revela que:
 
 * Precisión (R² test): 36.5% - Explica 36.5% de la variabilidad salarial. 
-* Precisión (R² CV): 34.5% - Validación cruzada confirma estabilidad
-* Error promedio: $1,097 USD/mes (±$56). 
-* Overfitting: Controlado (diferencia R²: 0.046)
-* Factor más determinante: Experiencia (25.3% de importancia)
+* Precisión (R² CV): 34.7% - Validación cruzada confirma estabilidad
+* Error promedio: $1,104 USD/mes (±$55). 
+* Overfitting: Controlado (diferencia R²: 0.042)
+* Factor más determinante: Experiencia (31.7% de importancia)
 
 Top 3 variables individuales:
-1. experiencia: 25.30%
-2. seniority_Senior: 16.29%
-3. forma_pago_Cobro todo el salario en dólares: 11.26%
+1. experiencia: 31.66%
+2. seniority_Senior: 15.30%
+3. forma_pago_Cobro todo el salario en dólares: 10.05%
 \end{verbatim}
 
 El modelo identifica correctamente que la experiencia, edad y forma de
