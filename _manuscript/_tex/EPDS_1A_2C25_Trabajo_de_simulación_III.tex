@@ -180,7 +180,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, sharp corners, borderline west={3pt}{0pt}{shadecolor}, interior hidden, boxrule=0pt, frame hidden, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, sharp corners, frame hidden, enhanced, breakable, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -791,8 +791,8 @@ Si los intervalos NO se solapan, hay evidencia adicional de diferencia real.
 Generando 10,000 muestras bootstrap...Completado
 
 [INTERVALOS DE CONFIANZA 95%]
-Contractors: [$2,452.83, $2,880.00] USD
-Staff:       [$2,094.34, $2,208.49] USD
+Contractors: [$2,452.83, $2,877.36] USD
+Staff:       [$2,094.34, $2,207.55] USD
 
 --------------------------------------------------------------------------------
 Los intervalos NO se solapan
@@ -827,7 +827,7 @@ RESULTADOS DE LAS PRUEBAS:
       → Diferencia SIGNIFICATIVA
 
 2. INTERVALOS DE CONFIANZA 95%:
-   - Contractors: [$2,453, $2,880] USD
+   - Contractors: [$2,453, $2,877] USD
    - Staff: [$2,094, $2,208] USD
    - Solapamiento: NO
       → Confirma diferencia significativa
@@ -846,17 +846,17 @@ si ambos grupos fueran realmente iguales. Un p-valor bajo indica que es
 poco probable que esta diferencia sea producto del azar. Resultados de
 las dos pruebas:
 
-Prueba de Permutaciones: El p-valor obtenido nos indica si podemos
-rechazar H0 con 95\% de confianza (alpha = 0.05). Si p \textless{} 0.05,
-la diferencia ES estadísticamente significativa; si p es mayor o igual
-0.05, NO tenemos evidencia suficiente para afirmar que existe diferencia
-real. Intervalos de Confianza 95\%: Estos intervalos nos dan un rango
-donde se encuentra el verdadero valor poblacional de la mediana con 95\%
-de confianza. Si los intervalos de ambos grupos NO se solapan, hay
-evidencia adicional de diferencia significativa. Si SÍ se solapan,
-existe zona de incertidumbre.
+\textbf{Prueba de Permutaciones}: El p-valor obtenido nos indica si
+podemos rechazar H0 con 95\% de confianza (alpha = 0.05). Si p
+\textless{} 0.05, la diferencia ES estadísticamente significativa; si p
+es mayor o igual 0.05, NO tenemos evidencia suficiente para afirmar que
+existe diferencia real. Intervalos de Confianza 95\%: Estos intervalos
+nos dan un rango donde se encuentra el verdadero valor poblacional de la
+mediana con 95\% de confianza. Si los intervalos de ambos grupos NO se
+solapan, hay evidencia adicional de diferencia significativa. Si SÍ se
+solapan, existe zona de incertidumbre.
 
-Convergencia y robustez: Las distribuciones bootstrap (10,000
+\textbf{Convergencia y robustez}: Las distribuciones bootstrap (10,000
 replicaciones con reemplazo) demuestran un principio fundamental
 estudiado en la materia: la Ley de los Grandes Números. A medida que
 aumentamos las replicaciones, las distribuciones de las medianas
@@ -873,12 +873,12 @@ Contractor.
 estadística:}\label{conexiuxf3n-con-inferencia-estaduxedstica}
 
 Aunque la materia no cubrió formalmente estadística inferencial, este
-análisis representa un ``coqueteo'' práctico con conceptos
-fundamentales: pruebas de hipótesis, p-valores, intervalos de confianza
-y tamaño del efecto. Aplicamos el método científico a nuestros datos:
-planteamos una conjetura específica, la sometimos a prueba rigurosa
-usando simulación computacional (bootstrap/permutaciones), y llegamos a
-una conclusión fundamentada en probabilidades, no en intuición.
+análisis representa, tal como lo señala la consigna, un ``coqueteo''
+práctico con conceptos fundamentales: pruebas de hipótesis, p-valores,
+intervalos de confianza y tamaño del efecto. Planteamos una conjetura
+específica, la sometimos a prueba rigurosa usando simulación
+computacional (bootstrap/permutaciones), y llegamos a una conclusión
+fundamentada en probabilidades, no en intuición.
 
 \subsection{\texorpdfstring{Machine Learning: \emph{Random Forest
 Regressor}}{Machine Learning: Random Forest Regressor}}\label{machine-learning-random-forest-regressor}
